@@ -1,5 +1,5 @@
 import { apiBuilder, makeApi } from "../../src/index";
-import { z } from "zod";
+import { z } from "zod/v4";
 import { devUser } from "./users";
 import { paramPages } from "./params";
 

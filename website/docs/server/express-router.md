@@ -34,7 +34,7 @@ Context.router(api?: ZodiosEndpointDescriptions, options?: ZodiosRouterOptions):
 | enableJsonBodyParser   | boolean                      | enable json body parser - default to true                             |
 | validate               | boolean                      | enable zod input validation - default to true                         |
 | transform              | boolean                      | enable zod input transformation - default to false                    |
-| validationErrorHandler | RouterValidationErrorHandler | error handler for validation errors - default to `defaulErrorHandler` |
+| validationErrorHandler | RouterValidationErrorHandler | error handler for validation errors - default to `defaultErrorHandler` |
 | caseSensitive          | boolean                      | enable case sensitive path matching - default to false                |
 | strict                 | boolean                      | enable strict path matching - default to false                        |
 
@@ -58,7 +58,7 @@ type RouterValidationErrorHandler = (
 ```ts
 
 import { zodiosContext } from "@zodios/express";
-import z from "zod";
+import { z } from "zod/v4";
 import { userApi } from "../../common/api";
 import { userMiddleware } from "./userMiddleware";
 
@@ -81,7 +81,7 @@ router.use(userMiddleware);
 ```ts
 import { zodiosApp, zodiosRouter } from "@zodios/express";
 
-const app = zodiosApp(); // just an axpess app with type annotations
+const app = zodiosApp(); // just an express app with type annotations
 const userRouter = zodiosRouter(userApi); // just an express router with type annotations and validation middlewares
 const adminRouter = zodiosRouter(adminApi); // just an express router with type annotations and validation middlewares
 

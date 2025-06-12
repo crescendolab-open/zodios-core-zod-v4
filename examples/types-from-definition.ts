@@ -7,12 +7,12 @@ import {
   ZodiosPathParamByAlias,
   makeErrors,
 } from "../src/index";
-import z from "zod";
+import { z } from "zod/v4";
 
 const user = z.object({
   id: z.number(),
   name: z.string(),
-  email: z.string().email(),
+  email: z.email(),
   phone: z.string(),
 });
 
@@ -33,7 +33,7 @@ const errors = makeErrors([
     status: 500,
     schema: z.object({
       message: z.string(),
-      cause: z.record(z.string()),
+      cause: z.record(z.string(), z.string()),
     }),
   },
 ]);

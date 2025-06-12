@@ -151,12 +151,12 @@ import {
   ZodiosPathParamsByPath,
   ZodiosQueryParamsByPath,
 } from "@zodios/code";
-import z from "zod";
+import { z } from "zod/v4";
 
 const user = z.object({
   id: z.number(),
   name: z.string(),
-  email: z.string().email(),
+  email: z.email(),
   phone: z.string(),
 });
 

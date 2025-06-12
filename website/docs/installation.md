@@ -6,20 +6,20 @@ sidebar_position: 2
 
 :::info
 Zodios packages can be installed using your preferred package manager.  
-We only show npm and yarn as they are the most popular.
+We only show npm and pnpm as they are the most popular.
 :::
 
 ## Frontend installation
 
 ```bash npm2yarn
-npm install @zodios/core axios zod
+npm install @crescendolab/zodios-core-zod-v4 axios zod
 ```
 ### With React
 
 if you want to use the react hooks, you need to install the following packages:
 
 ```bash npm2yarn
-npm install @tanstack/react-query @zodios/core @zodios/react axios react react-dom zod
+npm install @tanstack/react-query @crescendolab/zodios-core-zod-v4 @zodios/react axios react react-dom zod
 ```
 
 ### With Solid
@@ -27,7 +27,7 @@ npm install @tanstack/react-query @zodios/core @zodios/react axios react react-d
 if you want to use the solid hooks, you need to install the following packages:
 
 ```bash npm2yarn
-npm install @tanstack/solid-query @zodios/core @zodios/solid axios solid-js zod
+npm install @tanstack/solid-query @crescendolab/zodios-core-zod-v4 @zodios/solid axios solid-js zod
 ```
 ### Install type definitions
 
@@ -43,7 +43,7 @@ npm install --dev @types/react @types/react-dom
 ### With Express
 
 ```bash npm2yarn
-npm install @zodios/core @zodios/express express zod axios
+npm install @crescendolab/zodios-core-zod-v4 @zodios/express express zod axios
 ```
 
 optional packages for openapi generation:
@@ -55,7 +55,7 @@ npm install @zodios/openapi swagger-ui-express
 ### With NextJS
 
 ```bash npm2yarn
-npm install @zodios/core @zodios/express next zod axios react react-dom
+npm install @crescendolab/zodios-core-zod-v4 @zodios/express next zod axios react react-dom
 ```
 
 ### Install type definitions
@@ -65,6 +65,6 @@ install those even in javascript projects
 ```bash npm2yarn
 // if you use express
 npm install --dev @types/express
-// or with nextjs
+// or with next.js
 npm install --dev @types/express @types/react @types/react-dom
 ```

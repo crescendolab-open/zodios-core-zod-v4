@@ -1,5 +1,5 @@
 import type { AxiosResponse } from "axios";
-import { z } from "zod";
+import { z } from "zod/v4";
 import { apiBuilder } from "../api";
 import { ReadonlyDeep } from "../utils.types";
 import { AnyZodiosRequestOptions } from "../zodios.types";
@@ -254,13 +254,12 @@ status: 200 OK
 cause:
 [
   {
-    "code": "invalid_type",
     "expected": "string",
-    "received": "number",
+    "code": "invalid_type",
     "path": [
       "first"
     ],
-    "message": "Expected string, received number"
+    "message": "Invalid input: expected string, received number"
   }
 ]
 received:

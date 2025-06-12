@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod/v4";
 import { makeApi } from "../../src/index";
 
 export const devFollow = z.object({

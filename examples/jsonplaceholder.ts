@@ -4,7 +4,7 @@ import {
   ZodiosHeaderParamsByAlias,
   Zodios,
 } from "../src/index";
-import { z } from "zod";
+import { z } from "zod/v4";
 
 async function bootstrap() {
   const apiClient = new Zodios("https://jsonplaceholder.typicode.com", [

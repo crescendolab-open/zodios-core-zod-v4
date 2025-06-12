@@ -2,9 +2,11 @@
   // ts config for es 2021
   "compilerOptions": {
     "target": "ES2019",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "lib": ["ES2019"],
+    "module": "Node16",
+    "moduleResolution": "node16",
+    "lib": [
+      "ES2019"
+    ],
     "outDir": "./lib",
     "alwaysStrict": true,
     "strict": true,
@@ -14,5 +16,8 @@
     "noErrorTruncation": true,
     "jsx": "react-jsx"
   },
-  "exclude": ["node_modules", "lib"]
+  "exclude": [
+    "node_modules",
+    "lib"
+  ]
 }

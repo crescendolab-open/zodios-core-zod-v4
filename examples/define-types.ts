@@ -1,5 +1,5 @@
 import { Zodios, makeApi } from "../src/index";
-import { z } from "zod";
+import { z } from "zod/v4";
 
 // you can define schema before declaring the API to get back the type
 const userSchema = z

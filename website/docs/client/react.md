@@ -93,7 +93,7 @@ const { data: users, isLoading, isError } = hooks.useQuery('/users');
 ```
 
 :::note
-check [react-query documentation](https://react-query.tanstack.com/reference/useQuery) for more informations on `QueryResult` and `QueryOptions`.
+check [react-query documentation](https://react-query.tanstack.com/reference/useQuery) for more information on `QueryResult` and `QueryOptions`.
 :::
 
 ### `zodios.useImmutableQuery`
@@ -110,13 +110,13 @@ const { data: users, isLoading, isError } = hooks.useImmutableQuery('/users/sear
 ```
 
 :::note
-check [react-query documentation](https://react-query.tanstack.com/reference/useQuery) for more informations on `QueryResult` and `QueryOptions`.
+check [react-query documentation](https://react-query.tanstack.com/reference/useQuery) for more information on `QueryResult` and `QueryOptions`.
 :::
 
 
 ### `zodios.useInfiniteQuery`
 
-Generic request method that allows to load pages indefinitly.
+Generic request method that allows to load pages indefinitely.
 
 ```ts
 useInfiniteQuery(path: string, config?: ZodiosRequestOptions, infiniteQueryOptions?: InfiniteQueryOptions): InfiniteQueryResult<Response>;
@@ -126,7 +126,7 @@ Compared to native react-query infinite query, you also need to provide a functi
 
 **Example**:
 ```ts
-  const { data: userPages, isFectching, fetchNextPage } = apiHooks.useInfiniteQuery(
+  const { data: userPages, isFetching, fetchNextPage } = apiHooks.useInfiniteQuery(
     "/users",
     {
       // request 10 users per page
@@ -146,12 +146,12 @@ Compared to native react-query infinite query, you also need to provide a functi
 ```
 
 :::note
-check [react-query infinite query documentation](https://react-query.tanstack.com/reference/useInfiniteQuery) for more informations on `InfiniteQueryResult` and `InfiniteQueryOptions`.
+check [react-query infinite query documentation](https://react-query.tanstack.com/reference/useInfiniteQuery) for more information on `InfiniteQueryResult` and `InfiniteQueryOptions`.
 :::
 
 ### `zodios.useImmutableInfiniteQuery`
 
-Generic request method that allows to search pages indefinitly with post requests.
+Generic request method that allows to search pages indefinitely with post requests.
 
 ```ts
 useImmutableInfiniteQuery(path: string, body: Body ,config?: ZodiosRequestOptions, infiniteQueryOptions?: InfiniteQueryOptions): InfiniteQueryResult<Response>;
@@ -161,7 +161,7 @@ Compared to native react-query infinite query, you also need to provide a functi
 
 **Example**:
 ```ts
-  const { data: userPages, isFectching, fetchNextPage } = apiHooks.useImmutableInfiniteQuery(
+  const { data: userPages, isFetching, fetchNextPage } = apiHooks.useImmutableInfiniteQuery(
     "/users/search",
     {
       // search for users named John
@@ -184,7 +184,7 @@ Compared to native react-query infinite query, you also need to provide a functi
 ```
 
 :::note
-check [react-query infinite query documentation](https://react-query.tanstack.com/reference/useInfiniteQuery) for more informations on `InfiniteQueryResult` and `InfiniteQueryOptions`.
+check [react-query infinite query documentation](https://react-query.tanstack.com/reference/useInfiniteQuery) for more information on `InfiniteQueryResult` and `InfiniteQueryOptions`.
 :::
 
 ### `zodios.useMutation`
@@ -201,7 +201,7 @@ const { mutate } = hooks.useMutation('post','/users');
 ```
 
 :::note
-check [react-query documentation](https://react-query.tanstack.com/reference/useMutation) for more informations on `MutationResult` and `MutationOptions`.
+check [react-query documentation](https://react-query.tanstack.com/reference/useMutation) for more information on `MutationResult` and `MutationOptions`.
 :::
 
 ### `zodios.useGet`
@@ -319,7 +319,7 @@ Else, you'll get the following error:
 import React from "react";
 import { Zodios } from "@zodios/core";
 import { ZodiosHooks } from "@zodios/react";
-import { z } from "zod";
+import { z } from "zod/v4";
 
 const baseUrl = "https://jsonplaceholder.typicode.com";
 const zodios = new Zodios(baseUrl, [...]);

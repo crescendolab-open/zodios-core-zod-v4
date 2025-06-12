@@ -12,8 +12,8 @@ currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-If you identify a vulnerability on zodios, please create an issue with a reproductible setup.
-Do not open an issue if you can't show a reproductible setup of if the vulnerability is on third party dependency.
+If you identify a vulnerability on zodios, please create an issue with a reproducible setup.
+Do not open an issue if you can't show a reproducible setup of if the vulnerability is on third party dependency.
 
 Indeed, a vulnerability on a peer dependency should be reported on the appropriate project:
 - zod

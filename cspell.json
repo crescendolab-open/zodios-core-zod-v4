@@ -1,0 +1,28 @@
+{
+  "allowCompoundWords": true,
+  "enableFiletypes": [
+    "*"
+  ],
+  "enableGlobDot": true,
+  "files": [
+    "**/*"
+  ],
+  "ignorePaths": [
+    "/.git",
+    ".*ignore",
+    "/*.code-workspace",
+    "/pnpm-lock.yaml",
+    "**/__snapshots__/**"
+  ],
+  "includeRegExpList": [
+    "[ -ɏ]"
+  ],
+  "useGitignore": true,
+  "version": "0.2",
+  "words": [
+    "axios",
+    "jsonplaceholder",
+    "orhun",
+    "Zodios"
+  ]
+}

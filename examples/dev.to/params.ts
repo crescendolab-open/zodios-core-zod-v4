@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod/v4";
 import { makeParameters } from "../../src/api";
 
 export const paramPages = makeParameters([

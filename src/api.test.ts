@@ -1,13 +1,13 @@
 import express from "express";
 import { AddressInfo } from "net";
-import z from "zod";
+import { z } from "zod/v4";
 import {
+  apiBuilder,
   makeApi,
   makeCrudApi,
   mergeApis,
-  Zodios,
   parametersBuilder,
-  apiBuilder,
+  Zodios,
 } from "./index";
 import { Assert } from "./utils.types";
 
@@ -98,7 +98,7 @@ describe("makeApi", () => {
       {
         method: "post",
         path: "/users/:id",
-        alias: "createtUser",
+        alias: "createUser",
         description: "Create a user",
         parameters: [
           {
@@ -148,7 +148,7 @@ describe("makeApi", () => {
         {
           method: "post";
           path: "/users/:id";
-          alias: "createtUser";
+          alias: "createUser";
           description: "Create a user";
           parameters: [
             {

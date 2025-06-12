@@ -1,14 +1,14 @@
 import { AxiosError } from "axios";
 import express from "express";
 import { AddressInfo } from "net";
-import { z, ZodError } from "zod";
+import { z, ZodError } from "zod/v4";
 globalThis.FormData = require("form-data");
 import { Zodios } from "./zodios";
 import { ZodiosError } from "./zodios-error";
 import multer from "multer";
 import { ZodiosPlugin } from "./zodios.types";
 import { apiBuilder } from "./api";
-import { isErrorFromPath, isErrorFromAlias } from "./zodios-error.utils";
+import { isErrorFromAlias, isErrorFromPath } from "./zodios-error.utils";
 import { Assert } from "./utils.types";
 
 const multipart = multer({ storage: multer.memoryStorage() });
@@ -160,7 +160,7 @@ describe("Zodios", () => {
     expect(zodios.baseURL).toBe(`http://localhost:${port}`);
   });
 
-  it("should create a new instance whithout base URL", () => {
+  it("should create a new instance without base URL", () => {
     const zodios = new Zodios([
       {
         method: "get",
@@ -339,7 +339,7 @@ describe("Zodios", () => {
       url: "/:id",
       params: { id: 7 },
     });
-    const testResonseType: Assert<
+    const testResponseType: Assert<
       typeof response,
       { id: number; name: string }
     > = true;
@@ -523,7 +523,7 @@ describe("Zodios", () => {
             type: "Body",
             schema: z
               .object({
-                email: z.string().email(),
+                email: z.email(),
               })
               .transform((data) => ({
                 name: `${data.email.split("@")[0]}`,
@@ -720,7 +720,7 @@ describe("Zodios", () => {
           {
             name: "uuid",
             type: "Path",
-            schema: z.string().uuid(),
+            schema: z.uuid(),
           },
         ],
         response: z.object({
@@ -745,7 +745,7 @@ describe("Zodios", () => {
           {
             name: "uuid",
             type: "Path",
-            schema: z.string().uuid(),
+            schema: z.uuid(),
           },
         ],
         response: z.object({
@@ -791,13 +791,12 @@ status: 200 OK
 cause:
 [
   {
-    "code": "invalid_type",
     "expected": "string",
-    "received": "undefined",
+    "code": "invalid_type",
     "path": [
       "more"
     ],
-    "message": "Required"
+    "message": "Invalid input: expected string, received undefined"
   }
 ]
 received:

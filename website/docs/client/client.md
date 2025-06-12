@@ -17,9 +17,9 @@ When creating an instance or zodios api client, you need to at least provide the
 `baseURL` is optional in browsers and will default to the current page url.
 
 ```ts
-new Zodios(baseURL: string, api: ZodiosEnpointDescriptions, options?: ZodiosOptions)
+new Zodios(baseURL: string, api: ZodiosEndpointDescriptions, options?: ZodiosOptions)
 // or
-new Zodios(api: ZodiosEnpointDescriptions, options?: ZodiosOptions)
+new Zodios(api: ZodiosEndpointDescriptions, options?: ZodiosOptions)
 ```
 
 **Example**
@@ -28,7 +28,7 @@ You can predefine some schemas to reuse them in your API definition.
 
 ```ts
 import { Zodios, makeErrors } from "@zodios/core";
-import z from "zod";
+import { z } from "zod/v4";
 
 const errors = makeErrors([
   {
@@ -46,7 +46,7 @@ const user = z.object({
   id: z.number(),
   name: z.string(),
   age: z.number().positive(),
-  email: z.string().email(),
+  email: z.email(),
 });
 ```
 

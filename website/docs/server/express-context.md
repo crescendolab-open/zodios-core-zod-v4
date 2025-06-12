@@ -14,7 +14,7 @@ To create a context, you need to use the `zodiosContext` function.
 
 ```ts
 import { zodiosContext } from "@zodios/express";
-import z from "zod";
+import { z } from "zod/v4";
 
 const ctx = zodiosContext(z.object({
   user: z.object({

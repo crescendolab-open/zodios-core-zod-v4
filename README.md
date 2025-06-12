@@ -68,25 +68,13 @@ It's an axios compatible API client and an optional expressJS compatible API ser
 ## Client and api definitions :
 
 ```bash
-> npm install @zodios/core
+> npm install @crescendolab/core
 ```
 
 or
 
 ```bash
-> yarn add @zodios/core
-```
-
-## Server :
-  
-```bash
-> npm install @zodios/core @zodios/express
-```
-
-or
-
-```bash
-> yarn add @zodios/core @zodios/express
+> pnpm add @crescendolab/core
 ```
 
 # How to use it on client side ?
@@ -98,8 +86,8 @@ For an almost complete example on how to use zodios and how to split your APIs d
 Here is an example of API declaration with Zodios.
   
 ```typescript
-import { Zodios } from "@zodios/core";
-import { z } from "zod";
+import { Zodios } from "@crescendolab/zodios-core-zod-v4";
+import { z } from "zod/v4";
 
 const apiClient = new Zodios(
   "https://jsonplaceholder.typicode.com",
@@ -158,7 +146,7 @@ type ZodiosEndpointDescriptions = Array<{
     schema: ZodSchema; // you can use zod `transform` to transform the value of the parameter before sending it to the server
   }>;
   response: ZodSchema; // you can use zod `transform` to transform the value of the response before returning it
-  status?: number; // default to 200, you can use this to override the sucess status code of the response (only usefull for openapi and express)
+  status?: number; // default to 200, you can use this to override the success status code of the response (only usefull for openapi and express)
   responseDescription?: string; // optional response description of the endpoint
   errors?: Array<{
     status: number | 'default';
@@ -192,7 +180,7 @@ for Zod` / `Io-Ts` :
 
   - By using the TypeProvider pattern we can now make zodios validation agnostic.
 
-  - Implement at least ZodTypeProvider and IoTsTypeProvider since they both support `input` and `output` type inferrence
+  - Implement at least ZodTypeProvider and IoTsTypeProvider since they both support `input` and `output` type inference
 
   - openapi generation will only be compatible with zod though
 
@@ -214,7 +202,7 @@ for Zod` / `Io-Ts` :
 
 - [x] Axios:
 
-  - Move Axios client to it's own package `@zodios/axios` and keep `@zodios/core` with only common types and helpers
+  - Move Axios client to it's own package `@zodios/axios` and keep `@crescendolab/zodios-core-zod-v4` with only common types and helpers
 
   - Move plugins to `@zodios/axios-plugins`
 
@@ -234,7 +222,7 @@ for Zod` / `Io-Ts` :
 
 - [ ] React/Solid:  
 
-   - make ZodiosHooks independant of Zodios client instance (axios, fetch)
+   - make ZodiosHooks independent of Zodios client instance (axios, fetch)
 
    - not a breaking change, so no codemod needed
 
@@ -252,16 +240,24 @@ for Zod` / `Io-Ts` :
 
   - new feature, so no breaking change (no codemod needed)
 
-You have other ideas ? [Let me know !](https://github.com/ecyrbe/zodios/discussions)
+You have other ideas ? [Let me know !](https://github.com/crescendolab-open/zodios-core-zod-v4)
 # Dependencies
 
 Zodios even when working in pure Javascript is better suited to be working with Typescript Language Server to handle autocompletion.
 So you should at least use the one provided by your IDE (vscode integrates a typescript language server)
 However, we will only support fixing bugs related to typings for versions of Typescript Language v4.5
-Earlier versions should work, but do not have TS tail recusion optimisation that impact the size of the API you can declare.
+Earlier versions should work, but do not have TS tail recursion optimization that impact the size of the API you can declare.
 
 Also note that Zodios do not embed any dependency. It's your Job to install the peer dependencies you need.  
   
 Internally Zodios uses these libraries on all platforms :
 - zod
 - axios
+
+# License
+
+Forked from [ecyrbe/zodios-react](https://github.com/ecyrbe/zodios) which is licensed under the [MIT License](https://github.com/ecyrbe/zodios/blob/main/LICENSE)
+
+Copyright © 2025-preset Crescendo Lab Inc.
+
+Licensed under the [Apache License, Version 2.0](https://github.com/crescendolab-open/zodios-zod-v4/blob/main/LICENSE)

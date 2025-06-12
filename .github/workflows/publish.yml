@@ -10,31 +10,35 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [20.x]
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           registry-url: "https://registry.npmjs.org"
           node-version: ${{ matrix.node-version }}
-          cache: "yarn"
+          cache: "pnpm"
       - name: install dependencies
-        run: yarn install
+        run: pnpm install
       - name: build
-        run: yarn build
+        run: pnpm build
       - name: run test
-        run: yarn test
+        run: pnpm test
       - name: publish to npm
         # only run when tag has no 'rc' in it
         if: ${{ !contains(github.ref, 'rc') }}
-        run: yarn publish --access public
+        run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: publish beta to npm
         # only run when tag has 'rc' in it
         if: ${{ contains(github.ref, 'rc') }}
-        run: yarn publish --access public --tag beta
+        run: pnpm publish --access public --tag beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: generate changelog

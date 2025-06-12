@@ -46,7 +46,7 @@ export class ZodiosClass<Api extends ZodiosEndpointDefinitions> {
 
   /**
    * constructor
-   * @param baseURL - the base url to use - if omited will use the browser domain
+   * @param baseURL - the base url to use - if omitted will use the browser domain
    * @param api - the description of all the api endpoints
    * @param options - the options to setup the client API
    * @example

@@ -8,14 +8,14 @@ on:
     branches: [main]
     paths:
       - src/**
-      - yarn.lock
+      - pnpm-lock.yaml
       - package.json
       - tsconfig.json
   pull_request:
     branches: [main]
     paths:
       - src/**
-      - yarn.lock
+      - pnpm-lock.yaml
       - package.json
       - tsconfig.json
 
@@ -25,19 +25,23 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.x, 20.x, 22.x, 24.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "yarn"
-      - run: yarn install --ignore-engines
-      - run: yarn build
-      - run: yarn test
+          cache: "pnpm"
+      - run: pnpm install
+      - run: pnpm build
+      - run: pnpm test
   analyze:
     name: Analyze
     runs-on: ubuntu-latest

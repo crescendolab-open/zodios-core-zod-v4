@@ -99,7 +99,7 @@ const state = hooks.createQuery('/users');
 ```
 
 :::note
-check [solid-query documentation](https://tanstack.com/query/v4/docs/adapters/solid-query) for more informations on `QueryResult` and `QueryOptions`.
+check [solid-query documentation](https://tanstack.com/query/v4/docs/adapters/solid-query) for more information. on `QueryResult` and `QueryOptions`.
 :::
 
 ### `zodios.createImmutableQuery`
@@ -116,13 +116,13 @@ const state = hooks.createImmutableQuery('/users/search', { name: "John" });
 ```
 
 :::note
-check [solid-query documentation](https://tanstack.com/query/v4/docs/adapters/solid-query) for more informations on `QueryResult` and `QueryOptions`.
+check [solid-query documentation](https://tanstack.com/query/v4/docs/adapters/solid-query) for more information on `QueryResult` and `QueryOptions`.
 :::
 
 
 ### `zodios.createInfiniteQuery`
 
-Generic request method that allows to load pages indefinitly.
+Generic request method that allows to load pages indefinitely.
 
 ```ts
 useInfiniteQuery(path: string, config?: ZodiosRequestOptions, infiniteQueryOptions?: CreateInfiniteQueryOptions): CreateInfiniteQueryResult<Response>;
@@ -152,12 +152,12 @@ Compared to native solid-query infinite query, you also need to provide a functi
 ```
 
 :::note
-check [solid-query infinite query documentation](https://tanstack.com/query/v4/docs/adapters/solid-query) for more informations on `InfiniteQueryResult` and `InfiniteQueryOptions`.
+check [solid-query infinite query documentation](https://tanstack.com/query/v4/docs/adapters/solid-query) for more information on `InfiniteQueryResult` and `InfiniteQueryOptions`.
 :::
 
 ### `zodios.createImmutableInfiniteQuery`
 
-Generic request method that allows to search pages indefinitly with post requests.
+Generic request method that allows to search pages indefinitely with post requests.
 
 ```ts
 useImmutableInfiniteQuery(path: string, body: Body ,config?: ZodiosRequestOptions, infiniteQueryOptions?: CreateInfiniteQueryOptions): CreateInfiniteQueryResult<Response>;
@@ -190,7 +190,7 @@ Compared to native solid-query infinite query, you also need to provide a functi
 ```
 
 :::note
-check [create-query infinite query documentation](https://tanstack.com/query/v4/docs/adapters/solid-query) for more informations on `InfiniteQueryResult` and `InfiniteQueryOptions`.
+check [create-query infinite query documentation](https://tanstack.com/query/v4/docs/adapters/solid-query) for more information on `InfiniteQueryResult` and `InfiniteQueryOptions`.
 :::
 
 ### `zodios.createMutation`
@@ -207,7 +207,7 @@ const state = hooks.createMutation('post','/users');
 ```
 
 :::note
-check [solid-query documentation](https://tanstack.com/query/v4/docs/adapters/solid-query) for more informations on `MutationResult` and `MutationOptions`.
+check [solid-query documentation](https://tanstack.com/query/v4/docs/adapters/solid-query) for more information on `MutationResult` and `MutationOptions`.
 :::
 
 ### `zodios.createGet`
@@ -331,7 +331,7 @@ import { createSignal, For, Match, Show, Switch } from "solid-js";
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
 import { makeApi, Zodios } from "@zodios/core";
 import { ZodiosHooks } from "../src";
-import { z } from "zod";
+import { z } from "zod/v4";
 
 // you can define schema before declaring the API to get back the type
 const userSchema = z

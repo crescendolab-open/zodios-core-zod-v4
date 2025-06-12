@@ -3,7 +3,7 @@
 /**
  * getFormDataStream
  * @param data - the data to be encoded as form data stream
- * @returns a readable stream of the form data and optionnaly headers
+ * @returns a readable stream of the form data and optionally headers
  */
 export function getFormDataStream(data: Record<string, string | Blob>): {
   data: FormData;

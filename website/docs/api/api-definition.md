@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # API definition
 
-Zodios uses a centralised definition to declare your REST API endpoints.
+Zodios uses a centralized definition to declare your REST API endpoints.
 
 The API definition is the only object that you need to share between your server and client code.
 If you don't have the control over your API server or if it's developped in another language than javascript, you can still use Zodios API definition only for your client.

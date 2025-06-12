@@ -19,7 +19,7 @@ function openApiBuilder(info: OpenAPIV3.InfoObject): OpenApiBuilder
 
 | Method                                                                                                    | Description                                |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| `addSecurityScheme(name: string, securityScheme: OpenAPIV3.SecuritySchemeObject)`                         | add a security scheme to proctect the apis |
+| `addSecurityScheme(name: string, securityScheme: OpenAPIV3.SecuritySchemeObject)`                         | add a security scheme to protect the apis  |
 | `addPublicApi(definitions: ZodiosEndpointDefinitions)`                                                    | add an api with public endpoints           |
 | `addProtectedApi(scheme: string, definitions: ZodiosEndpointDefinitions, securityRequirement?: string[])` | add an api protected by a security scheme  |
 | `addServer(server: OpenAPIV3.ServerObject)`                                                               | add a server to the openapi document       |

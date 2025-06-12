@@ -129,7 +129,7 @@ export type ZodiosPlugin = {
    * @returns possibly a new request config
    */
   request?: (
-    api: ZodiosEnpointDescriptions,
+    api: ZodiosEndpointDescriptions,
     config: AnyZodiosRequestOptions
   ) => Promise<AnyZodiosRequestOptions>;
   /**
@@ -140,7 +140,7 @@ export type ZodiosPlugin = {
    * @returns possibly a new response
    */
   response?: (
-    api: ZodiosEnpointDescriptions,
+    api: ZodiosEndpointDescriptions,
     config: AnyZodiosRequestOptions,
     response: AxiosResponse
   ) => Promise<AxiosResponse>;
@@ -149,11 +149,11 @@ export type ZodiosPlugin = {
    * there is no error interceptor for request errors
    * @param api - the api description
    * @param config - the config for the request
-   * @param error - the error that occured
+   * @param error - the error that occurred
    * @returns possibly a new response or throw a new error
    */
   error?: (
-    api: ZodiosEnpointDescriptions,
+    api: ZodiosEndpointDescriptions,
     config: AnyZodiosRequestOptions,
     error: Error
   ) => Promise<AxiosResponse>;

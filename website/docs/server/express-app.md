@@ -33,7 +33,7 @@ Context.app(api?: ZodiosEndpointDescriptions, options?: ZodiosAppOptions): Zodio
 | enableJsonBodyParser   | boolean                      | enable json body parser - default to true                             |
 | validate               | boolean                      | enable zod input validation - default to true                         |
 | transform              | boolean                      | enable zod input transformation - default to false                    |
-| validationErrorHandler | RouterValidationErrorHandler | error handler for validation errors - default to `defaulErrorHandler` |
+| validationErrorHandler | RouterValidationErrorHandler | error handler for validation errors - default to `defaultErrorHandler` |
 
 ```ts
 type RouterValidationErrorHandler = (
@@ -53,7 +53,7 @@ type RouterValidationErrorHandler = (
 
 ```ts
 import { zodiosContext } from "@zodios/express";
-import z from "zod";
+import { z } from "zod/v4";
 import { userApi } from "../../common/api";
 import { userMiddleware } from "./userMiddleware";
 
@@ -121,7 +121,7 @@ Zodios express can infer the status code to match your API error response and al
 ```typescript title="/src/server/app.ts"
 import { makeApi } from "@zodios/core";
 import { zodiosApp } from "@zodios/express";
-import { z } from "zod";
+import { z } from "zod/v4";
 
 const userApi = makeApi([
   {

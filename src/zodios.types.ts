@@ -1,23 +1,21 @@
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
+import type { AxiosError, AxiosInstance, AxiosResponse, AxiosRequestConfig } from "axios";
+import { z } from "zod/v4";
 import type {
-  FilterArrayByValue,
-  MapSchemaParameters,
-  PickDefined,
-  NeverIfEmpty,
-  UndefinedToOptional,
-  PathParamNames,
-  SetPropsOptionalIfChildrenAreOptional,
-  ReadonlyDeep,
-  Merge,
   FilterArrayByKey,
+  FilterArrayByValue,
   IfEquals,
+  MapSchemaParameters,
+  Merge,
+  NeverIfEmpty,
+  PathParamNames,
+  PickDefined,
+  ReadonlyDeep,
   RequiredKeys,
-  UndefinedIfNever,
+  SetPropsOptionalIfChildrenAreOptional,
   Simplify,
+  UndefinedIfNever,
+  UndefinedToOptional,
 } from "./utils.types";
-import z from "zod";
-
-type AxiosRequestConfig = Parameters<typeof axios.request>[0];
 
 export type MutationMethod = "post" | "put" | "patch" | "delete";
 
@@ -649,7 +647,7 @@ export type ZodiosEndpointError<T = unknown> = {
 export type ZodiosEndpointErrors = ZodiosEndpointError[];
 
 /**
- * Zodios enpoint definition that should be used to create a new instance of Zodios
+ * Zodios endpoint definition that should be used to create a new instance of Zodios
  */
 export interface ZodiosEndpointDefinition<R = unknown> {
   /**
@@ -695,7 +693,7 @@ export interface ZodiosEndpointDefinition<R = unknown> {
    */
   response: z.ZodType<R>;
   /**
-   * optional response status of the endpoint for sucess, default is 200
+   * optional response status of the endpoint for success, default is 200
    * customize it if your endpoint returns a different status code and if you need openapi to generate the correct status code
    */
   status?: number;
@@ -747,7 +745,7 @@ export type ZodiosPlugin = {
    * there is no error interceptor for request errors
    * @param api - the api description
    * @param config - the config for the request
-   * @param error - the error that occured
+   * @param error - the error that occurred
    * @returns possibly a new response or a new error
    */
   error?: (
