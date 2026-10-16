@@ -1,7 +1,7 @@
 {
   "name": "@crescendolab/zodios-core-zod-v4",
   "description": "Typescript API client with autocompletion and zod validations",
-  "version": "10.9.6",
+  "version": "10.10.0",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "typings": "lib/index.d.ts",
@@ -24,7 +24,7 @@
   "homepage": "https://github.com/crescendolab-open/zodios-core-zod-v4",
   "repository": {
     "type": "git",
-    "url": "https://github.com/crescendolab-open/zodios-core-zod-v4.git"
+    "url": "git+https://github.com/crescendolab-open/zodios-core-zod-v4.git"
   },
   "license": "Apache-2.0",
   "keywords": [
