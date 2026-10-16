@@ -41,30 +41,9 @@ jobs:
         # only run when tag has 'rc' in it
         if: ${{ contains(github.ref, 'rc') }}
         run: npm publish --access public --tag beta
-      - name: generate changelog
-        uses: orhun/git-cliff-action@v2
-        id: cliff
-        with:
-          args: --latest --strip footer
-        env:
-          OUTPUT: CHANGES.md
-      - name: save changelog
-        id: changelog
-        shell: bash
-        run: |
-          changelog=$(cat ${{ steps.cliff.outputs.changelog }})
-          changelog="${changelog//'%'/'%25'}"
-          changelog="${changelog//$'\n'/'%0A'}"
-          changelog="${changelog//$'\r'/'%0D'}"
-          echo "changelog=$changelog" >> $GITHUB_OUTPUT
       - name: create release
-        id: release
-        uses: actions/create-release@v1
+        # git-cliff-action@v2 and actions/create-release@v1 no longer run;
+        # use GitHub-generated release notes instead.
+        run: gh release create "$GITHUB_REF_NAME" --verify-tag --generate-notes --title "Release $GITHUB_REF_NAME" ${{ contains(github.ref, 'rc') && '--prerelease' || '' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: ${{ steps.changelog.outputs.changelog }}
-          draft: false
-          prerelease: false
+          GH_TOKEN: ${{ github.token }}
