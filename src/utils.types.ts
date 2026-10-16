@@ -1,4 +1,4 @@
-import { z, ZodType } from "zod/v4";
+import { z } from "zod/v4";
 
 /**
  * filter an array type by a predicate value
@@ -56,7 +56,7 @@ type NarrowRaw<T> =
       [K in keyof T]: K extends "description" ? T[K] : NarrowNotZod<T[K]>;
     };
 
-type NarrowNotZod<T> = Try<T, ZodType, NarrowRaw<T>>;
+type NarrowNotZod<T> = Try<T, z.core.$ZodType, NarrowRaw<T>>;
 
 /**
  * Utility to infer the embedded primitive type of any type

@@ -27,6 +27,9 @@ jobs:
       matrix:
         node-version: [18.x, 20.x, 22.x, 24.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        # "lockfile" tests the zod 4 version pinned in pnpm-lock.yaml;
+        # 3.25.49 tests the lower bound of the zod peer range.
+        zod-version: [lockfile, 3.25.49]
 
     steps:
       - uses: actions/checkout@v4
@@ -40,6 +43,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
       - run: pnpm install
+      - name: Use zod ${{ matrix.zod-version }}
+        if: matrix.zod-version != 'lockfile'
+        run: pnpm add -D zod@${{ matrix.zod-version }}
       - run: pnpm build
       - run: pnpm test
   analyze:
