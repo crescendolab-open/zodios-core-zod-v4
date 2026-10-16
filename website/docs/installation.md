@@ -14,6 +14,13 @@ We only show npm and pnpm as they are the most popular.
 ```bash npm2yarn
 npm install @crescendolab/zodios-core-zod-v4 axios zod
 ```
+
+:::info
+Zodios requires Zod 4 schemas. It supports `zod@^4.0.0` and `zod@^3.25.49`.
+With `zod@4`, import from `zod`. With `zod@3.25`, import from `zod/v4`,
+because `zod` exports Zod 3 schemas in that release line.
+:::
+
 ### With React
 
 if you want to use the react hooks, you need to install the following packages:

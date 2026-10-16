@@ -276,7 +276,7 @@ export function makeCrudApi<T extends string, S extends z.ZodObject>(
           name: "body",
           type: "Body",
           description: "The object to create",
-          schema: schema.partial() as z.ZodType<Partial<Schema>>,
+          schema: schema.partial() as unknown as z.ZodType<Partial<Schema>>,
         },
       ],
       // @ts-expect-error
@@ -313,7 +313,7 @@ export function makeCrudApi<T extends string, S extends z.ZodObject>(
           name: "body",
           type: "Body",
           description: "The object to patch",
-          schema: schema.partial() as z.ZodSchema<Partial<Schema>>,
+          schema: schema.partial() as unknown as z.ZodType<Partial<Schema>>,
         },
       ],
       // @ts-expect-error
