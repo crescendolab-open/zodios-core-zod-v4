@@ -1,85 +1,97 @@
- <h1 align="center">Zodios</h1>
- <p align="center">
-   <a href="https://github.com/ecyrbe/zodios">
-     <img align="center" src="https://raw.githubusercontent.com/ecyrbe/zodios/main/docs/logo.svg" width="128px" alt="Zodios logo">
-   </a>
- </p>
- <p align="center">
-    Zodios is a typescript api client and an optional api server with auto-completion features backed by <a href="https://axios-http.com" >axios</a> and <a href="https://github.com/colinhacks/zod">zod</a> and <a href="https://expressjs.com/">express</a>
-    <br/>
-    <a href="https://www.zodios.org/">Documentation</a>
- </p>
- 
- <p align="center">
-   <a href="https://www.npmjs.com/package/@zodios/core">
-   <img src="https://img.shields.io/npm/v/@zodios/core.svg" alt="langue typescript">
-   </a>
-   <a href="https://www.npmjs.com/package/@zodios/core">
-   <img alt="npm" src="https://img.shields.io/npm/dw/@zodios/core">
-   </a>
-   <a href="https://github.com/ecyrbe/zodios/blob/main/LICENSE">
-    <img alt="GitHub" src="https://img.shields.io/github/license/ecyrbe/zodios">   
-   </a>
-   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/ecyrbe/zodios/ci.yml?branch=main">
- </p>
+<h1 align="center">@crescendolab/zodios-core-zod-v4</h1>
 <p align="center">
-   <img alt="Bundle Size" src="https://img.shields.io/bundlephobia/minzip/@zodios/core?label=%40zodios%2Fcore"/>
-   <img alt="Bundle Size" src="https://img.shields.io/bundlephobia/minzip/@zodios/fetch?label=%40zodios%2Ffetch"/>
-   <img alt="Bundle Size" src="https://img.shields.io/bundlephobia/minzip/@zodios/axios?label=%40zodios%2Faxios"/>
-   <img alt="Bundle Size" src="https://img.shields.io/bundlephobia/minzip/@zodios/react?label=%40zodios%2Freact"/>
-   <img alt="Bundle Size" src="https://img.shields.io/bundlephobia/minzip/@zodios/express?label=%40zodios%2Fexpress"/>
-   <img alt="Bundle Size" src="https://img.shields.io/bundlephobia/minzip/@zodios/openapi?label=%40zodios%2Fopenapi"/>
-   <img alt="Bundle Size" src="https://img.shields.io/bundlephobia/minzip/@zodios/testing?label=%40zodios%2Ftesting"/>
+  <a href="https://github.com/ecyrbe/zodios">
+    <img align="center" src="https://raw.githubusercontent.com/ecyrbe/zodios/main/docs/logo.svg" width="128px" alt="Zodios logo">
+  </a>
 </p>
 
-https://user-images.githubusercontent.com/633115/185851987-554f5686-cb78-4096-8ff5-c8d61b645608.mp4
+<p align="center">
+  A TypeScript API client with autocompletion and <a href="https://zod.dev/">zod</a> validation, backed by <a href="https://axios-http.com">axios</a>
+</p>
 
-# What is it ?
+<p align="center">
+  <a href="https://www.npmjs.com/package/@crescendolab/zodios-core-zod-v4">
+    <img alt="npm version" src="https://img.shields.io/npm/v/@crescendolab/zodios-core-zod-v4.svg">
+  </a>
+  <a href="https://www.npmjs.com/package/@crescendolab/zodios-core-zod-v4">
+    <img alt="npm downloads" src="https://img.shields.io/npm/dw/@crescendolab/zodios-core-zod-v4">
+  </a>
+  <a href="https://github.com/crescendolab-open/zodios-core-zod-v4/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/crescendolab-open/zodios-core-zod-v4">
+  </a>
+  <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/crescendolab-open/zodios-core-zod-v4/ci.yml?branch=main">
+</p>
 
-It's an axios compatible API client and an optional expressJS compatible API server with the following features:  
-  
-- really simple centralized API declaration
-- typescript autocompletion in your favorite IDE for URL and parameters
-- typescript response types
-- parameters and responses schema thanks to zod
-- response schema validation
-- powerfull plugins like `fetch` adapter or `auth` automatic injection
-- all axios features available
-- `@tanstack/query` wrappers for react and solid (vue, svelte, etc, soon)
-- all expressJS features available (middlewares, etc.)
+A [Crescendo Lab](https://cresclab.com/) fork of [`@zodios/core`](https://github.com/ecyrbe/zodios) that supports zod 4.
 
-  
+# Why this fork?
+
+`@zodios/core` 10.9.6, released in August 2023, is the latest upstream release. Its peer dependency is `zod ^3.x`, so it can't type-check zod 4 schemas.
+
+Crescendo Lab's apps define their APIs with zodios and are moving to zod 4. This fork keeps the `@zodios/core` 10.x API and changes only what zod 4 requires:
+
+- Types and validation are built on zod 4 schemas, imported from `zod/v4`.
+- The peer dependency accepts `zod ^3.25.49 || ^4.0.0`. Both release lines ship zod 4 under `zod/v4`.
+
+It pairs with [`@crescendolab/zodios-react-query-v5`](https://github.com/crescendolab-open/zodios-react-query-v5), a fork of `@zodios/react` for React 19 and TanStack Query v5.
+
+# Maintenance
+
+This fork exists to meet Crescendo Lab's own needs. It is **not actively maintained for the long term**:
+
+- We fix issues that affect our usage. Other issues and pull requests may get a slow response or none.
+- We don't plan new features or follow upstream changes. The upstream v11 roadmap is out of scope.
+- If upstream releases zod 4 support, or a maintained alternative fits your project, prefer that.
+
+Pin the version you depend on and review changes before upgrading.
+
 **Table of contents:**
 
-- [What is it ?](#what-is-it-)
+- [Why this fork?](#why-this-fork)
+- [Maintenance](#maintenance)
+- [What is it?](#what-is-it)
 - [Install](#install)
-  - [Client and api definitions :](#client-and-api-definitions-)
-  - [Server :](#server-)
 - [How to use it on client side ?](#how-to-use-it-on-client-side-)
   - [Declare your API with zodios](#declare-your-api-with-zodios)
   - [API definition format](#api-definition-format)
 - [Full documentation](#full-documentation)
 - [Ecosystem](#ecosystem)
-- [Roadmap](#roadmap)
 - [Dependencies](#dependencies)
+- [License](#license)
+
+# What is it?
+
+An axios-compatible API client with these features:
+
+- Simple, centralized API declaration
+- TypeScript autocompletion for URLs and parameters
+- Typed responses
+- Parameter and response schemas with zod
+- Response schema validation
+- Plugins, such as `fetch` adapters or automatic `auth` injection
+- All axios features
+- React hooks through [`@crescendolab/zodios-react-query-v5`](https://github.com/crescendolab-open/zodios-react-query-v5)
 
 # Install
 
-## Client and api definitions :
-
 ```bash
-> npm install @crescendolab/core
+> pnpm add @crescendolab/zodios-core-zod-v4 axios zod
 ```
 
 or
 
 ```bash
-> pnpm add @crescendolab/core
+> npm install @crescendolab/zodios-core-zod-v4 axios zod
 ```
+
+Zodios requires zod 4 schemas:
+
+- With `zod@^4.0.0`, import from `zod` or `zod/v4`.
+- With `zod@^3.25.49`, import from `zod/v4`. In this release line, `zod` exports zod 3 schemas, which don't type-check with this package.
 
 # How to use it on client side ?
 
-For an almost complete example on how to use zodios and how to split your APIs declarations, take a look at [dev.to](examples/dev.to/) example.
+For an almost complete example on how to use zodios and how to split your APIs declarations, see the [dev.to example](examples/dev.to/).
 
 ## Declare your API with zodios
 
@@ -146,7 +158,7 @@ type ZodiosEndpointDescriptions = Array<{
     schema: ZodSchema; // you can use zod `transform` to transform the value of the parameter before sending it to the server
   }>;
   response: ZodSchema; // you can use zod `transform` to transform the value of the response before returning it
-  status?: number; // default to 200, you can use this to override the success status code of the response (only usefull for openapi and express)
+  status?: number; // default to 200, you can use this to override the success status code of the response (only useful for openapi and express)
   responseDescription?: string; // optional response description of the endpoint
   errors?: Array<{
     status: number | 'default';
@@ -157,98 +169,30 @@ type ZodiosEndpointDescriptions = Array<{
 ```
 # Full documentation
 
-Check out the [full documentation](https://www.zodios.org) or following shortcuts.
+This fork keeps the `@zodios/core` 10.x API, so the [upstream documentation](https://www.zodios.org) applies. Replace `@zodios/core` with `@crescendolab/zodios-core-zod-v4` and define schemas with zod 4.
 
 - [API definition](https://www.zodios.org/docs/category/zodios-api-definition)
 - [Http client](https://www.zodios.org/docs/category/zodios-client)
-- [React hooks](https://www.zodios.org/docs/client/react)
-- [Solid hooks](https://www.zodios.org/docs/client/solid)
-- [API server](http://www.zodios.org/docs/category/zodios-server)
-- [Nextjs integration](http://www.zodios.org/docs/server/next)
 
 # Ecosystem
 
-- [openapi-zod-client](https://github.com/astahmer/openapi-zod-client): generate a zodios client from an openapi specification
-- [@zodios/express](https://github.com/ecyrbe/zodios-express): full end to end type safety like tRPC, but for REST APIs
-- [@zodios/plugins](https://github.com/ecyrbe/zodios-plugins) : some plugins for zodios
-- [@zodios/react](https://github.com/ecyrbe/zodios-react) : a react-query wrapper for zodios
-- [@zodios/solid](https://github.com/ecyrbe/zodios-solid) : a solid-query wrapper for zodios
+- [`@crescendolab/zodios-react-query-v5`](https://github.com/crescendolab-open/zodios-react-query-v5): React hooks for this fork, built on TanStack Query v5
 
-# Roadmap for v11
+The upstream packages below depend on `@zodios/core` and zod 3. They haven't been tested with this fork:
 
-for Zod` / `Io-Ts` :
+- [openapi-zod-client](https://github.com/astahmer/openapi-zod-client): generate a zodios client from an OpenAPI specification
+- [@zodios/express](https://github.com/ecyrbe/zodios-express): end-to-end type safety like tRPC, but for REST APIs
+- [@zodios/plugins](https://github.com/ecyrbe/zodios-plugins): plugins for zodios
+- [@zodios/solid](https://github.com/ecyrbe/zodios-solid): a solid-query wrapper for zodios
 
-  - By using the TypeProvider pattern we can now make zodios validation agnostic.
-
-  - Implement at least ZodTypeProvider and IoTsTypeProvider since they both support `input` and `output` type inference
-
-  - openapi generation will only be compatible with zod though
-
-  - Not a breaking change so no codemod needed
-
-- [x] MonoRepo:
-
-  - Zodios will become a really large project so maybe migrate to turbo repo + pnpm
-
-  - not a breaking change
-
-- [ ] Transform:
-
-  - By default, activate transforms on backend and disable on frontend (today it's the opposite), would make server transform code simpler since with this option we could make any transforms activated not just zod defaults.
-
-  - Rationale being that transformation can be viewed as business code that should be kept on backend
-
-  - breaking change => codemod to keep current defaults by setting them explicitly
-
-- [x] Axios:
-
-  - Move Axios client to it's own package `@zodios/axios` and keep `@crescendolab/zodios-core-zod-v4` with only common types and helpers
-
-  - Move plugins to `@zodios/axios-plugins`
-
-  - breaking change => easy to do a codemod for this
-
-- [x] Fetch:
-
-  - Create a new Fetch client with almost the same features as axios, but without axios dependency `@zodios/fetch`
-
-  - Today we have fetch support with a plugin for axios instance (zodios maintains it's own axios network adapter for fetch). But since axios interceptors are not used by zodios plugins, we can make fetch implementation lighter than axios instance.
-
-  - Create plugins package `@zodios/fetch-plugins`
-
-  - Not sure it's doable without a lot of effort to keep it in sync/compatible with axios client
-
-  - new feature, so no codemod needed
-
-- [ ] React/Solid:  
-
-   - make ZodiosHooks independent of Zodios client instance (axios, fetch)
-
-   - not a breaking change, so no codemod needed
-
-- [x] Client Request Config
-
-  - uniform Query/Mutation with body sent on the config and not as a standalone object. This would allow to not do `client.deleteUser(undefined, { params: { id: 1 } })` but simply  `client.deleteUser({ params: { id: 1 } })`
-
-  - breaking change, so a codemod would be needed, but might be difficult to implement
-
-- [x] Mock/Tests:
-
-  - if we implement an abstraction layer for client instance, relying on moxios to mock APIs response will likely not work for fetch implementation.
-
-  - create a `@zodios/testing` package that work for both axios/fetch clients
-
-  - new feature, so no breaking change (no codemod needed)
-
-You have other ideas ? [Let me know !](https://github.com/crescendolab-open/zodios-core-zod-v4)
 # Dependencies
 
 Zodios even when working in pure Javascript is better suited to be working with Typescript Language Server to handle autocompletion.
 So you should at least use the one provided by your IDE (vscode integrates a typescript language server)
-However, we will only support fixing bugs related to typings for versions of Typescript Language v4.5
+However, we will only support fixing bugs related to typings for TypeScript v4.5 and later
 Earlier versions should work, but do not have TS tail recursion optimization that impact the size of the API you can declare.
 
-Also note that Zodios do not embed any dependency. It's your Job to install the peer dependencies you need.  
+Also note that Zodios does not embed any dependency. It's your Job to install the peer dependencies you need.  
   
 Internally Zodios uses these libraries on all platforms :
 - zod
@@ -256,8 +200,8 @@ Internally Zodios uses these libraries on all platforms :
 
 # License
 
-Forked from [ecyrbe/zodios-react](https://github.com/ecyrbe/zodios) which is licensed under the [MIT License](https://github.com/ecyrbe/zodios/blob/main/LICENSE)
+Forked from [ecyrbe/zodios](https://github.com/ecyrbe/zodios), which is licensed under the [MIT License](https://github.com/ecyrbe/zodios/blob/main/LICENSE).
 
-Copyright © 2025-preset Crescendo Lab Inc.
+Copyright © 2025-present Crescendo Lab Inc.
 
-Licensed under the [Apache License, Version 2.0](https://github.com/crescendolab-open/zodios-zod-v4/blob/main/LICENSE)
+Licensed under the [Apache License, Version 2.0](https://github.com/crescendolab-open/zodios-core-zod-v4/blob/main/LICENSE).
